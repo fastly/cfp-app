@@ -97,14 +97,19 @@ Rails.application.configure do
   config.action_mailer.default_url_options = { host: ENV['MAIL_HOST'] }
   config.action_mailer.default_options = { from: ENV['MAIL_FROM'] }
 
-  config.action_mailer.smtp_settings = {
-    address: ENV.fetch('SMTP_ADDRESS', 'smtp.sendgrid.net'),
-    port: ENV.fetch('SMTP_PORT', '587'),
-    authentication: :plain,
-    user_name: "apikey",
-    password: ENV.fetch('SENDGRID_API_KEY', ""),
-    domain: 'heroku.com',
-    enable_starttls_auto: true
+  # config.action_mailer.smtp_settings = {
+  #     address: ENV.fetch('SMTP_ADDRESS', 'smtp.sendgrid.net'),
+  #     port: ENV.fetch('SMTP_PORT', '587'),
+  #     authentication: :plain,
+  #     user_name: "apikey",
+  #     password: ENV.fetch('SENDGRID_API_KEY', ""),
+  #     domain: 'heroku.com',
+  #     enable_starttls_auto: true
+  # }
+  config.action_mailer.delivery_method = :sendgrid_actionmailer
+  config.action_mailer.sendgrid_actionmailer_settings = {
+    api_key: ENV['SENDGRID_API_KEY'],
+    raise_delivery_errors: true
   }
 
   config.exceptions_app = routes

@@ -38,6 +38,7 @@ gem 'groupdate'
 gem 'nokogiri'
 gem 'pundit'
 gem 'redcarpet', '~> 3.5'
+gem 'sendgrid-actionmailer'
 gem 'simple_form'
 
 gem 'react-rails'
