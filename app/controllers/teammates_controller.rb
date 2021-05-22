@@ -1,4 +1,5 @@
 class TeammatesController < ApplicationController
+  before_action :require_user
   before_action :require_pending_invitation, only: [:accept, :decline]
   before_action :set_session_invite, only: [:accept]
   before_action :require_user_for_accept, only: [:accept]

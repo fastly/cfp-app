@@ -1,4 +1,6 @@
 class CommentsController < ApplicationController
+  before_action :require_user
+
   def create
     @proposal = Proposal.find(comment_params[:proposal_id])
 

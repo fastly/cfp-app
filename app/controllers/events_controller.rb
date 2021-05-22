@@ -1,4 +1,5 @@
 class EventsController < ApplicationController
+  before_action :require_user
   skip_before_action :current_event, only: [:index]
   before_action :require_event, only: [:show]
 

@@ -1,4 +1,5 @@
 class InvitationsController < ApplicationController
+  before_action :require_user
   before_action :require_proposal, only: [:create, :destroy, :resend]
   before_action :require_speaker, only: [:create, :destroy, :resend]
   before_action :require_pending_invitation, only: [:show, :accept, :decline, :destroy, :resend]
