@@ -37,10 +37,11 @@ class User < ApplicationRecord
   attr_accessor :pending_invite_email
 
   def self.from_omniauth(auth, invitation_email=nil)
-    where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
+    where(email: invitation_email || auth['info']['email']).first_or_create do |user|
+      uid = auth.uid
+      provider = auth.provider
       password = Devise.friendly_token[0,20]
       user.name = auth['info']['name'] if user.name.blank?
-      user.email = invitation_email || auth['info']['email'] || '' if user.email.blank?
       user.password = password
       user.password_confirmation = password
       if !user.confirmed? && invitation_email.present? && user.email == invitation_email
