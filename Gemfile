@@ -6,7 +6,7 @@ ruby_version = File.read(".ruby-version").chomp
 ruby ruby_version
 
 gem 'puma'
-gem 'rails', '~> 6.0.0'
+gem 'rails', '~> 6.1.6'
 
 gem 'pg'
 
