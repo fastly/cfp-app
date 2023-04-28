@@ -46,6 +46,7 @@ gem 'sendgrid-actionmailer'
 gem 'simple_form'
 
 gem 'react-rails'
+gem 'regexp_parser', '<= 2.7.0'
 gem 'webpacker'
 
 gem 'sidekiq'
@@ -70,7 +71,7 @@ group :development do
 end
 
 group :development, :test do
-  gem 'capybara', '~> 3.33'
+  gem 'capybara', '~> 3.34'
   gem 'database_cleaner', '~> 1.6'
   gem 'dotenv-rails'
   gem 'factory_bot_rails'
