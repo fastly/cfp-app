@@ -502,6 +502,8 @@ DEPENDENCIES
   jquery-rails
   jquery-ui-rails
   launchy
+  net-protocol
+  net-imap
   nokogiri
   omniauth-github
   omniauth-google-oauth2
