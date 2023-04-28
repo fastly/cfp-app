@@ -46,7 +46,6 @@ gem 'sendgrid-actionmailer'
 gem 'simple_form'
 
 gem 'react-rails'
-gem 'regexp_parser', '<= 2.7.0'
 gem 'webpacker'
 
 gem 'sidekiq'
