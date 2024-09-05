@@ -16,6 +16,20 @@ class Staff::ProposalsController < Staff::ApplicationController
                                {speakers: :user}).load
     @proposals = Staff::ProposalsDecorator.decorate(@proposals)
     @taggings_count = Tagging.count_by_tag(@event)
+
+    respond_to do |format|
+      format.html # index.html.haml
+      format.csv {
+        csv_string = CSV.generate do |csv|
+          csv << %w[Score Ratings StandardDeviation Title Speaker1 Speaker2 Speaker3 Abstract Details Pitch Format Track Status]
+          @proposals.each do |p|
+           speakers = p.speakers
+           csv << [p.average_rating, p.ratings.size, p.standard_deviation, p.title, speakers[0].name, speakers[1]&.name, speakers[2]&.name, p.abstract, p.details, p.pitch, p.session_format&.name, p.track&.name, p.state]
+          end
+        end
+        send_data csv_string, :filename => "#{@event.name} #{Time.now.to_i}.csv"
+      }
+    end
   end
 
   def show
