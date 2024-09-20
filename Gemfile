@@ -6,7 +6,7 @@ ruby_version = File.read(".ruby-version").chomp
 ruby ruby_version
 
 gem 'puma'
-gem 'rails', '~> 6.0.0'
+gem 'rails', '~> 6.1', '>= 6.1.0'
 
 gem 'pg'
 
@@ -37,6 +37,10 @@ gem 'country_select', '~> 1.3'
 gem 'draper', '~> 4.0'
 gem 'faker'
 gem 'groupdate'
+gem 'net-protocol'
+gem 'timeout'
+gem 'net-imap'
+gem 'date'
 gem 'nokogiri'
 gem 'pundit'
 gem 'redcarpet', '~> 3.5'
@@ -68,7 +72,7 @@ group :development do
 end
 
 group :development, :test do
-  gem 'capybara', '~> 3.33'
+  gem 'capybara', '~> 3.34'
   gem 'database_cleaner', '~> 1.6'
   gem 'dotenv-rails'
   gem 'factory_bot_rails'
