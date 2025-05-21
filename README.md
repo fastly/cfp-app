@@ -1,3 +1,14 @@
+# About
+
+This Fastly-maintained app was forked from https://github.com/rubycentral/cfp-app.
+
+Heroku hosting: https://dashboard.heroku.com/apps/fastly-cfp-app
+Google Cloud OAuth Config: https://console.cloud.google.com/auth/clients/154802454216-ljcc83hrovrjhmk19ebttbqka71gosdk.apps.googleusercontent.com?inv=1&invt=AbyAgA&project=app-eng-dev
+
+Administrators:
+- Nia Heffelfinger
+- Carolyn Billingsley
+
 # Call for Proposals (CFP) App 2.0
 
 ## WARNING
