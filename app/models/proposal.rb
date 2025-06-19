@@ -22,7 +22,7 @@ class Proposal < ApplicationRecord
 
   validates :title, :abstract, :session_format, presence: true
   validate :abstract_length
-  validates :title, length: { maximum: 60 }
+  validates :title, length: { maximum: 120 }
   validates_inclusion_of :state, in: valid_states, allow_nil: true, message: "'%{value}' not a valid state."
   validates_inclusion_of :state, in: FINAL_STATES, allow_nil: false, message: "'%{value}' not a confirmable state.",
                                  if: :confirmed_at_changed?
