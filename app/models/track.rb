@@ -6,7 +6,7 @@ class Track < ApplicationRecord
   has_many :proposals
 
   validates :name, uniqueness: {scope: :event}, presence: true
-  validates :description, length: {maximum: 250}
+  validates :description, length: {maximum: 500}
 
   scope :sort_by_name, -> { order(:name) }
 
@@ -22,7 +22,7 @@ end
 #  id          :bigint(8)        not null, primary key
 #  event_id    :bigint(8)
 #  name        :string
-#  description :string(250)
+#  description :string(500)
 #  guidelines  :text
 #  created_at  :datetime
 #  updated_at  :datetime
