@@ -88,18 +88,18 @@ feature "Event Config" do
       end
     end
 
-    it "can't add a track with a description longer than 250 characters" do
+    it "can't add a track with a description longer than 500 characters" do
       visit event_staff_config_path(event)
       find_link("Add Track").click
 
       find("#track_name")
       fill_in "Name", with: "Best Session"
       find("#track_description")
-      fill_in "Description", with: ("s" * 251 + "i")
+      fill_in "Description", with: ("s" * 501 + "i")
       find_button("Save").click
 
-      expect(page).to have_content("Description is too long (maximum is 250 characters)")
-      # expect(page).to have_content("There was a problem saving your track, Description is too long (maximum is 250 characters).")
+      expect(page).to have_content("Description is too long (maximum is 500 characters)")
+      # expect(page).to have_content("There was a problem saving your track, Description is too long (maximum is 500 characters).")
     end
 
     it "can edit a track" do
@@ -133,7 +133,7 @@ feature "Event Config" do
       expect(page).to have_content("Name can't be blank.")
     end
 
-    it "can't edit description to be longer than 250 characters" do
+    it "can't edit description to be longer than 500 characters" do
       track = create(:track, event: event)
       visit event_staff_config_path(event)
 
@@ -144,11 +144,11 @@ feature "Event Config" do
       find("#track_name").native.clear
       fill_in "track_name", with: track.name
       find("#track_description").native.clear
-      fill_in "track_description", with: ("s" * 250 + "i")
+      fill_in "track_description", with: ("s" * 500 + "i")
       find_button("Save").click
 
-      expect(page).to have_content("Description is too long (maximum is 250 characters)")
-      # expect(page).to have_content("There was a problem updating your track, Description is too long (maximum is 250 characters).")
+      expect(page).to have_content("Description is too long (maximum is 500 characters)")
+      # expect(page).to have_content("There was a problem updating your track, Description is too long (maximum is 500 characters).")
     end
 
     it "can delete a track" do
